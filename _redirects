@@ -1,0 +1,33 @@
+# Netlify / Cloudflare Pages — only used if Ridgeline signs and the site migrates off WordPress/Divi.
+#
+# Their live navigation points at WordPress DRAFT-PREVIEW URLs: /?page_id=NNN&preview=true
+# Nothing there is worth preserving literally. Plan: real permalinks + a 301 from every known page_id.
+# preview=true is dropped entirely — Netlify matches on page_id alone, so the preview variant is caught too.
+#
+# ⚠️ Only page_id 125 and 128 are confirmed to exist. Which page each one IS has not been confirmed.
+# [FULL page_id INVENTORY + WHAT EACH ONE MAPS TO — ALEX TO CRAWL BEFORE MIGRATION (PRE-LAUNCH L11)]
+# The two rules below stay commented until the crawl fills in their targets. Do not guess them.
+#
+# /  page_id=125  /[TARGET — CONFIRM FROM CRAWL]  301!
+# /  page_id=128  /[TARGET — CONFIRM FROM CRAWL]  301!
+#
+# Old nav pages expected in the crawl (each needs its page_id → new path):
+#   Home → /            Contact Us → /contact      Field one → /fields#jungle-fever
+#   Field two → /fields#junkyard                   Game Play → /game-play
+#   Location → /plan-your-visit                    Rentals → /rentals
+#   Rules → /rules      Waiver → /waiver           Progress (empty page) → /events  [OR DROP — CONFIRM]
+#
+# Events Calendar (tribe_events): keep the .ics feed URL alive for existing subscribers.
+# [ICAL FEED PATH — CONFIRM FROM LIVE SITE, THEN ADD A 200 REWRITE OR 301 HERE]
+
+# Pretty permalinks for the new build
+/fields            /fields.html            200
+/game-play         /game-play.html         200
+/rules             /rules.html             200
+/rentals           /rentals.html           200
+/plan-your-visit   /plan-your-visit.html   200
+/waiver            /waiver.html            200
+/events            /events.html            200
+/contact           /contact.html           200
+/privacy           /privacy.html           200
+/terms             /terms.html             200
